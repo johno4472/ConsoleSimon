@@ -13,7 +13,7 @@ namespace ConsoleSimon
         public void AddNewRandomInt()
         {
             Random random = new Random();
-            this.NumSequence.Add(random.Next());
+            this.NumSequence.Add(random.Next(10));
         }
     }
 }

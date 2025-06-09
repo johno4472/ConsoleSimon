@@ -8,12 +8,23 @@ bool lost = false;
 GameInfo gameInfo = new GameInfo();
 while (!lost)
 {
+    if (gameInfo.NumSequence.Count > 0)
+    {
+        Console.WriteLine("Next level!\n");
+        Thread.Sleep(500);
+        Console.Clear();
+    }
     gameInfo.AddNewRandomInt();
     for (int i = 0; i < gameInfo.NumSequence.Count; i++)
     {
-        Console.WriteLine(gameInfo.NumSequence[i]);
+        Console.Write(gameInfo.NumSequence[i]);
         Thread.Sleep(1000);
         Console.Clear();
+        Thread.Sleep(500);
+    }
+    for (int i = 0; i < gameInfo.NumSequence.Count; i++)
+    {
+        Console.Write($"Enter number {i + 1}: ");
         string userResponse = Console.ReadLine();
         int intResponse = Convert.ToInt32(userResponse);
         if (intResponse != gameInfo.NumSequence[i])
